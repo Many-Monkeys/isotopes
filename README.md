@@ -1,18 +1,27 @@
+NOTE: This is an unofficial version of the original [isotopes](https://github.com/squidfunk/isotopes) package. This version has some additional features that are not included in the offical distribution.
+
+1. Can host multiple types on the one domain.
+    - the original version could only safely support 1 type per domain
+
+    ``` ts
+    import { Isotope } from "isotopes"
+
+    const isotope = new Isotope<T>({
+      domain: "<domain>",
+      key: "<keyof T>",
+      type: "<enter-type-here>"
+    })
+    ```
+
+# Original Documentation Below
+
 [![Github Action][action-image]][action-link]
-[![Codecov][codecov-image]][codecov-link]
-[![Gitter][gitter-image]][gitter-link]
 [![npm][npm-image]][npm-link]
 
-  [action-image]: https://github.com/squidfunk/isotopes/workflows/ci/badge.svg?branch=master
-  [action-link]: https://github.com/squidfunk/isotopes/actions
-  [travis-image]: https://travis-ci.org/squidfunk/isotopes.svg?branch=master
-  [travis-link]: https://travis-ci.org/squidfunk/isotopes
-  [codecov-image]: https://img.shields.io/codecov/c/github/squidfunk/isotopes/master.svg
-  [codecov-link]: https://codecov.io/gh/squidfunk/isotopes
-  [gitter-image]: https://badges.gitter.im/squidfunk/isotopes.svg
-  [gitter-link]: https://gitter.im/squidfunk/isotopes
+  [action-image]: https://github.com/many-monkeys/isotopes/workflows/ci/badge.svg?branch=master
+  [action-link]: https://github.com/many-monkeys/isotopes/actions
   [npm-image]: https://img.shields.io/npm/v/isotopes.svg
-  [npm-link]: https://npmjs.com/package/isotopes
+  [npm-link]: https://npmjs.com/package/@many-monkeys/isotopes
 
 # Isotopes
 

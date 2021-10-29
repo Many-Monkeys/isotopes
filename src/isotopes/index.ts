@@ -163,7 +163,7 @@ export class Isotope<
   ): Promise<TGet | DeepPartial<TGet> | undefined> {
     const item = await this.client.get(id, names)
     if (item) {
-      delete item.attrs['__isotopes_type']
+      delete item.attrs.__isotopes_type
       return set(
         this.options.key,
         item.id,
@@ -184,7 +184,7 @@ export class Isotope<
     if (typeof data[this.options.key] === "undefined")
       throw new Error(`Invalid identifier: "${this.options.key}" not found`)
 
-    const amalgam = Object.assign({}, { '__isotopes_type': this.options.type }, data)
+    const amalgam = {__isotopes_type: this.options.type, ...data}
     await this.client.put(
       // tslint:disable-next-line
       amalgam[this.options.key]!.toString(),
@@ -223,7 +223,7 @@ export class Isotope<
     const { items, next } = await this.client.select(expr.toString(), prev)
     return {
       items: items.map(item => {
-        delete item.attrs['__isotopes_type']
+        delete item.attrs.__isotopes_type
         return set(
         this.options.key,
         item.id,

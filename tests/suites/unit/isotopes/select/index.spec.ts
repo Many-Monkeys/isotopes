@@ -258,8 +258,8 @@ describe("isotopes/select", () => {
 
         it("should append supplied expression prediciate with AND", () => {
           const predicate = squel.expr()
-            .and('`x` = ?')
-            .or('`y` = ?')
+            .and("`x` = ?")
+            .or("`y` = ?")
           const select = new IsotopeSelect(options)
             .where(predicate)
           expect(select.toString())
@@ -268,8 +268,8 @@ describe("isotopes/select", () => {
 
         it("should append supplied expression prediciate with AND (ignores first OR)", () => {
           const predicate = squel.expr()
-            .or('`x` = ?')
-            .or('`y` = ?')
+            .or("`x` = ?")
+            .or("`y` = ?")
           const select = new IsotopeSelect(options)
             .where(predicate)
           expect(select.toString())

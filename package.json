@@ -1,6 +1,6 @@
 {
-  "name": "isotopes",
-  "version": "0.6.1",
+  "name": "@many-monkeys/isotopes",
+  "version": "0.1.0",
   "description": "Serverless and typed object store built on top of AWS SimpleDB",
   "keywords": [
     "aws",
@@ -10,20 +10,25 @@
     "serverless",
     "storage"
   ],
-  "homepage": "https://github.com/squidfunk/isotopes",
+  "homepage": "https://github.com/many-monkeys/isotopes",
   "bugs": {
-    "url": "https://github.com/squidfunk/isotopes/issues",
-    "email": "martin.donath@squidfunk.com"
+    "url": "https://github.com/many-monkeys/issues"
   },
   "license": "MIT",
   "author": {
-    "name": "Martin Donath",
-    "email": "martin.donath@squidfunk.com"
+    "name": "Head-Monkey"
   },
-  "contributors": [],
+  "contributors": [
+    {
+      "name": "Head-Monkey"
+    },
+    {
+      "name": "Martin Donath"
+    }
+  ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/squidfunk/isotopes.git"
+    "url": "https://github.com/many-monkeys/isotopes.git"
   },
   "main": "dist/index.js",
   "scripts": {
