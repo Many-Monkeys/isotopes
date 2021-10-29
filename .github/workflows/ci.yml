@@ -55,56 +55,10 @@ jobs:
       - run: npm run build
       - run: npm run test
 
-      # Upload coverage report to codecov.io
-      - run: |
-          npm install codecov
-          npx codecov
-        env:
-          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
-
-  # Build and deploy documentation site
-  deploy:
-    if: github.event_name != 'pull_request' && github.ref == 'refs/heads/master'
-    runs-on: ubuntu-latest
-    steps:
-
-      # Checkout source form GitHub
-      - uses: actions/checkout@v2
-
-      # Install Python runtime
-      - uses: actions/setup-python@v1
-        with:
-          python-version: 3.x
-
-      # Set configuration for repository and deploy documentation
-      - env:
-          GH_TOKEN: ${{ secrets.GH_TOKEN }}
-          GH_NAME: ${{ secrets.GH_NAME }}
-          GH_EMAIL: ${{ secrets.GH_EMAIL }}
-        run: |
-          REMOTE="https://${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}"
-          git config --global user.name "${GH_NAME}"
-          git config --global user.email "${GH_EMAIL}"
-          git remote set-url origin ${REMOTE}
-
-      # Install theme and dependencies
-      - env:
-          GH_TOKEN: ${{ secrets.GH_TOKEN }}
-        run: |
-          pip install git+https://${GH_TOKEN}@github.com/squidfunk/mkdocs-material-insiders.git
-          pip install mkdocs-minify-plugin>=0.2
-
-      # Build documentation
-      - env:
-          GOOGLE_ANALYTICS_KEY: ${{ secrets.GOOGLE_ANALYTICS_KEY }}
-        run: |
-          mkdocs gh-deploy --force
-          mkdocs --version
-
-  # Publish Python package and Docker image
+  # Publish to NPM
   publish:
     if: |
-      github.repository == 'squidfunk/isotopes' &&
+      github.repository == 'Many-Monkeys/isotopes' &&
       startsWith(github.ref, 'refs/tags')
     needs: build
     runs-on: ubuntu-latest
