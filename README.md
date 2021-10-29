@@ -1,6 +1,6 @@
 NOTE: This is an unofficial version of the original [isotopes](https://github.com/squidfunk/isotopes) package. This version has some additional features that are not included in the offical distribution.
 
-1. Can host multiple types on the one domain.
+1. Can host multiple types on the one domain by using an optional discriminator field `type` when setting up.
     - the original version could only safely support 1 type per domain
 
     ``` ts
@@ -13,7 +13,7 @@ NOTE: This is an unofficial version of the original [isotopes](https://github.co
     })
     ```
 
-# Original Documentation Below
+# (Mostly) Original Documentation Below
 
 [![Github Action][action-image]][action-link]
 [![npm][npm-image]][npm-link]
