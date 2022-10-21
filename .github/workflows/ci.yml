@@ -35,7 +35,7 @@ jobs:
           fetch-depth: 5
 
       # Install Node runtime and dependencies
-      - uses: actions/setup-node@v1
+      - uses: actions/setup-node@v3
         with:
           node-version: 14.x
 
@@ -69,7 +69,7 @@ jobs:
           fetch-depth: 5
 
       # Install Node runtime and dependencies
-      - uses: actions/setup-node@v1
+      - uses: actions/setup-node@v3
         with:
           node-version: 14.x
           registry-url: https://registry.npmjs.org
