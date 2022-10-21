@@ -25,12 +25,10 @@ on:
 
 # Jobs to run
 jobs:
-
   # Build theme
   build:
     runs-on: ubuntu-latest
     steps:
-
       # Limit clone depth to speed up build
       - uses: actions/checkout@v1
         with:
@@ -59,12 +57,12 @@ jobs:
   publish:
     if: |
       github.repository == 'many-monkeys/isotopes'
+      && github.ref == 'ref/head/master'
     environment:
       name: Deploy
     needs: build
     runs-on: ubuntu-latest
     steps:
-
       # Limit clone depth to speed up build
       - uses: actions/checkout@v1
         with:
