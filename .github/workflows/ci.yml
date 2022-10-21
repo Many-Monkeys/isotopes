@@ -37,21 +37,21 @@ jobs:
       # Install Node runtime and dependencies
       - uses: actions/setup-node@v1
         with:
-          node-version: 10.x
+          node-version: 14.x
 
-      - uses: actions/cache@v1
+      - uses: actions/cache@v3
         id: cache-node
         with:
           path: node_modules
-          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          key: ${{ runner.os }}-node-${{ hashFiles('**/yarn.lock') }}
 
       - if: steps.cache-node.outputs.cache-hit != 'true'
-        run: npm install
+        run: yarn install
 
       # Run linter and build distribution files
-      - run: npm run lint
-      - run: npm run build
-      - run: npm run test
+      - run: yarn lint
+      - run: yarn build
+      - run: yarn test
 
   # Publish NPM package
   publish:
@@ -71,20 +71,20 @@ jobs:
       # Install Node runtime and dependencies
       - uses: actions/setup-node@v1
         with:
-          node-version: 10.x
+          node-version: 14.x
           registry-url: https://registry.npmjs.org
 
-      - uses: actions/cache@v1
+      - uses: actions/cache@v3
         id: cache-node
         with:
           path: node_modules
-          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          key: ${{ runner.os }}-node-${{ hashFiles('**/yarn.lock') }}
 
       - if: steps.cache-node.outputs.cache-hit != 'true'
-        run: npm install
+        run: yarn install
 
       # Run build and publish to NPM
-      - run: npm run build
+      - run: yarn build
       - env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-        run: npm publish --access public
+        run: yarn publish --access public
