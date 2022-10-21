@@ -57,7 +57,7 @@ jobs:
   publish:
     if: |
       github.repository == 'many-monkeys/isotopes'
-      && github.ref == 'ref/head/master'
+      && github.ref == 'refs/heads/master'
     environment:
       name: Deploy
     needs: build
