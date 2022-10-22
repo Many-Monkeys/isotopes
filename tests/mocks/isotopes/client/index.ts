@@ -41,7 +41,7 @@ import { flatten } from "isotopes/format"
  *
  * @return Item
  */
-export function mockIsotopeClientItem<T>(
+export function mockIsotopeClientItem<T extends {}>(
   id: string, data: T
 ): IsotopeClientItem {
   return {

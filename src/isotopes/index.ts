@@ -182,7 +182,7 @@ export class Isotope<
    */
   public async put(data: TPut): Promise<void> {
     if (typeof data[this.options.key] === "undefined")
-      throw new Error(`Invalid identifier: "${this.options.key}" not found`)
+      throw new Error(`Invalid identifier: "${String(this.options.key)}" not found`)
 
     const amalgam = {__isotopes_type: this.options.type, ...data}
     await this.client.put(
