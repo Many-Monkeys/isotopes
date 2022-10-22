@@ -53,7 +53,7 @@
     "chance": "1.1.9",
     "codecov": "3.8.3",
     "jasmine": "4.4.0",
-    "jasmine-spec-reporter": "6.0.0",
+    "jasmine-spec-reporter": "7.0.0",
     "nodemon": "2.0.20",
     "nyc": "15.1.0",
     "ts-node": "9.1.1",
